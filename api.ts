@@ -9,29 +9,21 @@ import type {
   AxiosRequestConfig,
   AxiosResponse
 } from 'axios'
-export type PetType = typeof PetType[keyof typeof PetType];
+export enum PetType {
+  DOG= 'DOG',
+  CAT= 'CAT',
 
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const PetType = {
-  DOG: 'DOG',
-  CAT: 'CAT',
-} as const;
-
+}
 export interface Pet {
   id?: number;
   name?: string;
   type?: PetType;
 }
 
-export type DogType = typeof DogType[keyof typeof DogType];
+export enum DogType {
+  DOG= 'DOG',
 
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const DogType = {
-  DOG: 'DOG',
-} as const;
-
+}
 export type DogAllOf = {
   age?: number;
 };
@@ -40,14 +32,10 @@ export type Dog = Pet & DogAllOf & {
   type: DogType;
 };
 
-export type CatType = typeof CatType[keyof typeof CatType];
+export enum CatType {
+  CAT= 'CAT',
 
-
-// eslint-disable-next-line @typescript-eslint/no-redeclare
-export const CatType = {
-  CAT: 'CAT',
-} as const;
-
+}
 export type CatAllOf = {
   lives?: number;
 };
