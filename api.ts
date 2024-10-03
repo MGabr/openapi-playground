@@ -24,19 +24,39 @@ export interface Pet {
   type?: PetType;
 }
 
+export type DogType = typeof DogType[keyof typeof DogType];
+
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const DogType = {
+  DOG: 'DOG',
+} as const;
+
 export type DogAllOf = {
   age?: number;
 };
 
-export type Dog = Pet & DogAllOf;
+export type Dog = Pet & DogAllOf & {
+  type: DogType;
+};
+
+export type GetPet200 = Cat | Dog;
+
+export type CatType = typeof CatType[keyof typeof CatType];
+
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const CatType = {
+  CAT: 'CAT',
+} as const;
 
 export type CatAllOf = {
   lives?: number;
 };
 
-export type Cat = Pet & CatAllOf;
-
-export type GetPet200 = Cat | Dog;
+export type Cat = Pet & CatAllOf & {
+  type: CatType;
+};
 
 
 

@@ -2,6 +2,8 @@ package com.github.mgabr.openapi_playground;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import io.swagger.v3.oas.annotations.media.DiscriminatorMapping;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @JsonTypeInfo(
@@ -13,6 +15,12 @@ import lombok.Data;
     @JsonSubTypes.Type(value = Dog.class, name = "DOG"),
     @JsonSubTypes.Type(value = Cat.class, name = "CAT")
 })
+@Schema(
+    discriminatorMapping = {
+        @DiscriminatorMapping(value = "DOG", schema = Dog.class),
+        @DiscriminatorMapping(value = "CAT", schema = Cat.class),
+    }
+)
 @Data
 public abstract class Pet {
 

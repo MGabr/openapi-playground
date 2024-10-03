@@ -62,3 +62,6 @@ components:
           type: string
       discriminator:
         propertyName: type
+        mapping:
+          DOG: "#/components/schemas/Dog"
+          CAT: "#/components/schemas/Cat"
