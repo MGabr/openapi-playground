@@ -31,6 +31,6 @@ public class PetControllerTest {
             .expectStatus()
             .isOk()
             .expectBody(Pet.class)
-            .isEqualTo(new Pet(1, "Rocky"));
+            .isEqualTo(new Dog(1, "Rocky", 7));
     }
 }

@@ -9,16 +9,40 @@ import type {
   AxiosRequestConfig,
   AxiosResponse
 } from 'axios'
+export type PetType = typeof PetType[keyof typeof PetType];
+
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export const PetType = {
+  DOG: 'DOG',
+  CAT: 'CAT',
+} as const;
+
 export interface Pet {
   id?: number;
   name?: string;
+  type?: PetType;
 }
 
+export type DogAllOf = {
+  age?: number;
+};
+
+export type Dog = Pet & DogAllOf;
+
+export type CatAllOf = {
+  lives?: number;
+};
+
+export type Cat = Pet & CatAllOf;
+
+export type GetPet200 = Cat | Dog;
 
 
 
 
-  export const getPet = <TData = AxiosResponse<Pet>>(
+
+  export const getPet = <TData = AxiosResponse<GetPet200>>(
     id: number, options?: AxiosRequestConfig
  ): Promise<TData> => {
     return axios.get(
@@ -26,4 +50,4 @@ export interface Pet {
     );
   }
 
-export type GetPetResult = AxiosResponse<Pet>
+export type GetPetResult = AxiosResponse<GetPet200>

@@ -9,6 +9,6 @@ public class PetController {
 
     @GetMapping("/pets/{id}")
     public Pet getPet(@PathVariable Integer id) {
-        return new Pet(id, "Rocky");
+        return new Dog(id, "Rocky", 7);
     }
 }
