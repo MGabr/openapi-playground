@@ -40,8 +40,6 @@ export type Dog = Pet & DogAllOf & {
   type: DogType;
 };
 
-export type GetPet200 = Cat | Dog;
-
 export type CatType = typeof CatType[keyof typeof CatType];
 
 
@@ -62,7 +60,7 @@ export type Cat = Pet & CatAllOf & {
 
 
 
-  export const getPet = <TData = AxiosResponse<GetPet200>>(
+  export const getPet = <TData = AxiosResponse<Pet>>(
     id: number, options?: AxiosRequestConfig
  ): Promise<TData> => {
     return axios.get(
@@ -70,4 +68,4 @@ export type Cat = Pet & CatAllOf & {
     );
   }
 
-export type GetPetResult = AxiosResponse<GetPet200>
+export type GetPetResult = AxiosResponse<Pet>
