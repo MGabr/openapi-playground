@@ -24,7 +24,11 @@ import lombok.Data;
 @Data
 public abstract class Pet {
 
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
     private final PetType type;
+
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
     private final Integer id;
+
     private final String name;
 }

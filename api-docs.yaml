@@ -28,6 +28,9 @@ paths:
 components:
   schemas:
     Cat:
+      required:
+        - id
+        - type
       type: object
       allOf:
         - $ref: "#/components/schemas/Pet"
@@ -37,6 +40,10 @@ components:
               type: integer
               format: int32
     Dog:
+      required:
+        - age
+        - id
+        - type
       type: object
       allOf:
         - $ref: "#/components/schemas/Pet"
@@ -46,6 +53,9 @@ components:
               type: integer
               format: int32
     Pet:
+      required:
+        - id
+        - type
       type: object
       properties:
         type:

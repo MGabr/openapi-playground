@@ -1,5 +1,6 @@
 package com.github.mgabr.openapi_playground;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Getter
@@ -12,5 +13,6 @@ public class Dog extends Pet {
         this.age = age;
     }
 
+    @Schema(requiredMode = Schema.RequiredMode.REQUIRED)
     private final Integer age;
 }

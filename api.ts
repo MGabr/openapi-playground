@@ -15,9 +15,9 @@ export enum PetType {
 
 }
 export interface Pet {
-  id?: number;
+  id: number;
   name?: string;
-  type?: PetType;
+  type: PetType;
 }
 
 export enum DogType {
